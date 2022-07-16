@@ -37,31 +37,15 @@ class Solution:
         low = 0
         high = len(nums) - 1
 
-        index = 0
-
-        # Note the eaulity case, to handle single element.
+        # The core logic is the following. Run the problem until the low > high. When they cross over, low will stay
+        # at the position where element is first >= to target. Any element to left of this boundary will be less than
+        # target and these elements cannot be disturbed. When the while loop ends, the current low pointer will contain
+        # the position to add the element.
         while low <= high:
-            # Case to handle integer over flow.
-            mid = low + (high-low)//2
+            mid = low + (high - low) // 2
 
-            # Case1:
-            # If the current mid index value is equivalent to target, the insert position can either be current index
-            # if all these elements to the left are less than the mid or the insert position can be on the left half
-            # if there are more elements on the left side with same value. In case 1b, this is equivalent to finding
-            # the left most index of the given element in sorted array.
-            if nums[mid] == target:
-                index = mid
-                high = mid -1
-
-            # Case 2:
-            # The mid element is less than target, then mid index can be potential index to insert. This is the case
-            # where all the elements to the right are larger than current elment at mid.
-            # Another case is that is the insert position is simply on the right side and we have to move our search to
-            # right
-            elif nums[mid] < target:
+            if nums[mid] < target:
                 low = mid + 1
-
-            # Case3:
             else:
                 high = mid - 1
 
@@ -69,8 +53,7 @@ class Solution:
 
 
 s1 = Solution()
-print(s1.searchInsert([1],2))
-#print (s1.searchInsert([1, 3, 5, 6], 5))
-#print (s1.searchInsert([1,1, 3, 5, 6], 2))
-#assert s1.searchInsert([1, 3, 5, 6], 5) == 2
-#assert s1.searchInsert([1,1, 3, 5, 6], 2) == 2
+assert s1.searchInsert([1],2) == 1
+assert s1.searchInsert([1, 3, 5, 6], 5) == 2
+assert s1.searchInsert([1,1, 3, 5, 6], 2) == 2
+assert s1.searchInsert([1,1, 3, 5,5, 7], 6) == 5
