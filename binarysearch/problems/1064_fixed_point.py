@@ -47,6 +47,12 @@
 # do
 # better?
 
+# Boundary pattern.
+#
+# The first part contains all the elements for which nums[index] < index. We dont care about this part.
+# The second part contains all the elements for which nums[indx] >= index.
+# The answer will be first element of second half.
+
 from typing import List
 
 class Solution:
@@ -67,3 +73,10 @@ class Solution:
             return -1
 
         return low
+
+
+obj1 = Solution()
+assert obj1.fixedPoint([-10, -5, -2, 0, 4, 5, 6, 7, 8, 9, 10]) == 4
+assert obj1.fixedPoint([-10, -5, 0, 3, 7]) == 3
+assert obj1.fixedPoint([0, 2, 5, 8, 17]) == 0
+assert obj1.fixedPoint([-10, -5, 3, 4, 7, 9]) == -1
