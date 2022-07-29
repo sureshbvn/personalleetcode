@@ -36,6 +36,16 @@
 # valid
 # array.
 
+# Compute d = (lastelement-firstelement)/(len of array)
+# Boundary Pattern:
+# Part1: All the elements which are in right sequence. This can be found out by
+# arr[index] == arr[0] + (d * index)
+# Part2: All the other elements
+# when the binary search finishes, the high points to last element in first group
+# and low points to first element in second group
+# The answer is nums[high] + d
+
+
 from typing import List
 
 class Solution:
