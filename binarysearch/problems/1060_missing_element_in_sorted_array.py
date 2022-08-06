@@ -62,7 +62,8 @@
 # Boundary Pattern
 # First group represents the fact that total number of missing elements is less than k
 # Second group represents the fact the total number of missing elements are greater than equal to k.
-#
+# Once the while loop ends, high points to the last element of the group.
+# The kth missing element will be nums[high] + (num missing elements so far - k)
 
 from typing import List
 

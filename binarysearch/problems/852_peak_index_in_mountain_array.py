@@ -36,6 +36,12 @@
 # mountain
 # array.
 
+# Boundary pattern.
+# Part1: All the elements for which nums[index] < nums[index+1]
+# Part2: All the elements for which nums[index] > nums[index+1]
+# Once the binary search is complete, low will point to the first element of Part2 which will
+# be peak index. Since peak is guranteed to exist, low will not be out of bound.
+
 from typing import List
 
 class Solution:
