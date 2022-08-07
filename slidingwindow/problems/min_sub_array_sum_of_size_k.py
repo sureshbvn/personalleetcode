@@ -1,3 +1,5 @@
+#https://www.geeksforgeeks.org/find-maximum-minimum-sum-subarray-size-k/
+
 from typing import List
 
 class Solution:
@@ -10,7 +12,7 @@ class Solution:
             runningSum = 0
 
             unningSum = 0
-            maxSum = float("-INF")
+            maxSum = float("INF")
 
             # Iterate till the end of the array.
             while high < len(arr):
@@ -29,7 +31,7 @@ class Solution:
                 runningSum = runningSum + arr[high]
 
                 # Check if the running sum is greater than maxSum.
-                if runningSum > maxSum:
+                if runningSum < maxSum:
                     maxSum = runningSum
 
                 runningSum = runningSum - arr[low]
@@ -40,6 +42,6 @@ class Solution:
 
 obj = Solution()
 #print(obj.maxSubArraySum([100, 200, 300, 400], 2))
-assert obj.maxSubArraySum([100, 200, 300, 400], 2) == 700
-assert obj.maxSubArraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4) == 39
+assert obj.maxSubArraySum([100, 200, 300, 400], 2) == 300
+assert obj.maxSubArraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4) == 17
 assert obj.maxSubArraySum([2, 3], 4) == "Invalid"
