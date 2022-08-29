@@ -57,3 +57,6 @@ assert (solution.countComponents(5, [[0,1],[1,2],[2,3], [3,4]]) == 1)
 assert (solution.countComponents(5, [[0,1],[3,4]]) == 3)
 assert (solution.countComponents(2, [[0,1]]) == 1)
 assert (solution.countComponents(2, []) == 2)
+
+# cycle case
+assert (solution.countComponents(5, [[0,1],[1,2],[2,3], [3,4], [4,1]]) == 1)
