@@ -36,6 +36,14 @@ class Solution:
                         queue.append(neighbor)
                         visited.add(neighbor)
 
+        # dfs is an inner function. It performs dfs traversal on the graph.
+        # Input: Source vertex to start dfs
+        def dfs(source, visited):
+
+            for neighbor in adjList[source]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    dfs(neighbor, visited)
 
         # Global visisted set.
         visited = set()
@@ -46,7 +54,8 @@ class Solution:
         # Every time BFS ends, we finished one connected component.
         for vertex in range(0, n):
             if vertex not in visited:
-                bfs(vertex, visited)
+                #bfs(vertex, visited)
+                dfs(vertex,visited)
                 connected = connected + 1
 
         return connected
